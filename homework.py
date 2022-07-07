@@ -14,11 +14,11 @@ class InfoMessage:
     def get_message(self) -> str:
 
         info = (
-                f'Тип тренировки: {self.training_type};',
-                f'Длительность: {self.duration:.3f} ч.;',
-                f'Дистанция: {self.distance:.3f} км;',
-                f'Ср. скорость: {self.speed:.3f} км/ч;',
-                f'Потрачено ккал: {self.calories:.3f}.'
+            f'Тип тренировки: {self.training_type};',
+            f'Длительность: {self.duration:.3f} ч.;',
+            f'Дистанция: {self.distance:.3f} км;',
+            f'Ср. скорость: {self.speed:.3f} км/ч;',
+            f'Потрачено ккал: {self.calories:.3f}.'
         )
 
         return ' '.join(info)
@@ -87,10 +87,10 @@ class Running(Training):
         mean_speed = self.get_mean_speed()  # Запрашиваем среднюю скорость
         duration_min = self.duration * 60  # Переводим длительность в минуты
         return (
-                (coeff_calorie_1 * mean_speed - coeff_calorie_2)
-                * self.weight
-                / self.M_IN_KM
-                * duration_min
+            (coeff_calorie_1 * mean_speed - coeff_calorie_2)
+            * self.weight
+            / self.M_IN_KM
+            * duration_min
         )
 
 
