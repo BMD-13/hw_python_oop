@@ -131,10 +131,10 @@ class Swimming(Training):
 
     def get_mean_speed(self) -> float:
         return (
-                self.variable_data_1
-                * self.variable_data_2
-                / self.M_IN_KM
-                / self.duration
+            self.variable_data_1
+            * self.variable_data_2
+            / self.M_IN_KM
+            / self.duration
         )
 
     def get_spent_calories(self) -> float:
