@@ -142,7 +142,7 @@ def read_package(workout_type: str, data: list) -> Training:
     # Словарь типов тренировок
     train_dict: dict[str, type[Training]] = {
         'SWM': Swimming, 'RUN': Running, 'WLK': SportsWalking
-        }
+                                            }
 
     if workout_type in train_dict:
         curent_train = train_dict[workout_type]  # создаем Training
