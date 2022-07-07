@@ -97,7 +97,6 @@ class SportsWalking(Training):
     Данный класс использует variable_data_1 в которой хранится рост (height)
     """
     height: Optional[float] = None  # это "заглушка" чтобы пройти тесты.
-    # Данный параметр вообще не используются
 
     def get_spent_calories(self) -> float:
         coeff_calorie_1 = 0.035  # Коэфициенты для формулы
@@ -122,7 +121,6 @@ class Swimming(Training):
     LEN_STEP: float = 1.38  # Переназначили длину гребка
     length_pool: Optional[float] = None  # это "заглушка" чтобы пройти тесты.
     count_pool: Optional[float] = None  # это "заглушка" чтобы пройти тесты
-    # Данные параметры вообще не используются
 
     def get_mean_speed(self) -> float:
         return (self.variable_data_1
