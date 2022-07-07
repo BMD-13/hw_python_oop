@@ -13,11 +13,13 @@ class InfoMessage:
 
     def get_message(self) -> str:
 
-        info = (f'Тип тренировки: {self.training_type};',
+        info = (
+                f'Тип тренировки: {self.training_type};',
                 f'Длительность: {self.duration:.3f} ч.;',
                 f'Дистанция: {self.distance:.3f} км;',
                 f'Ср. скорость: {self.speed:.3f} км/ч;',
-                f'Потрачено ккал: {self.calories:.3f}.')
+                f'Потрачено ккал: {self.calories:.3f}.'
+                )
 
         return ' '.join(info)
 
@@ -84,10 +86,12 @@ class Running(Training):
         coeff_calorie_2 = 20
         mean_speed = self.get_mean_speed()  # Запрашиваем среднюю скорость
         duration_min = self.duration * 60  # Переводим длительность в минуты
-        return ((coeff_calorie_1 * mean_speed - coeff_calorie_2)
+        return (
+                (coeff_calorie_1 * mean_speed - coeff_calorie_2)
                 * self.weight
                 / self.M_IN_KM
-                * duration_min)
+                * duration_min
+                )
 
 
 @dataclass
@@ -103,10 +107,13 @@ class SportsWalking(Training):
         coeff_calorie_2 = 0.029
         mean_speed = self.get_mean_speed()  # Запрашиваем среднюю скорость
         duration_min = self.duration * 60  # Переводим длительность в минуты
-        return ((coeff_calorie_1 * self.weight
-                + (mean_speed**2 // self.variable_data_1)
-                * coeff_calorie_2 * self.weight)
-                * duration_min)
+        return (
+            (coeff_calorie_1
+             * self.weight
+             + (mean_speed**2 // self.variable_data_1)
+             * coeff_calorie_2 * self.weight)
+            * duration_min
+            )
 
 
 @dataclass
@@ -123,10 +130,12 @@ class Swimming(Training):
     count_pool: Optional[float] = None  # это "заглушка" чтобы пройти тесты
 
     def get_mean_speed(self) -> float:
-        return (self.variable_data_1
+        return (
+                self.variable_data_1
                 * self.variable_data_2
                 / self.M_IN_KM
-                / self.duration)
+                / self.duration
+                )
 
     def get_spent_calories(self) -> float:
         mean_speed = self.get_mean_speed()  # Запросим среднюю скорость
@@ -140,7 +149,7 @@ def read_package(workout_type: str, data: list) -> Training:
     # Словарь типов тренировок
     train_dict: dict[str, type[Training]] = {
         'SWM': Swimming, 'RUN': Running, 'WLK': SportsWalking
-                                            }
+    }
 
     if workout_type in train_dict:
         curent_train = train_dict[workout_type]  # создаем Training
