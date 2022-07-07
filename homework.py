@@ -91,7 +91,7 @@ class Running(Training):
                 * self.weight
                 / self.M_IN_KM
                 * duration_min
-                )
+        )
 
 
 @dataclass
@@ -113,7 +113,7 @@ class SportsWalking(Training):
              + (mean_speed**2 // self.variable_data_1)
              * coeff_calorie_2 * self.weight)
             * duration_min
-            )
+        )
 
 
 @dataclass
@@ -135,7 +135,7 @@ class Swimming(Training):
                 * self.variable_data_2
                 / self.M_IN_KM
                 / self.duration
-                )
+        )
 
     def get_spent_calories(self) -> float:
         mean_speed = self.get_mean_speed()  # Запросим среднюю скорость
