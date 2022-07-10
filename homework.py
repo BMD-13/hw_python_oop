@@ -57,7 +57,7 @@ class Training:
             self.__class__.__name__, self.duration_h,
             self.get_distance(), self.get_mean_speed(),
             self.get_spent_calories()
-            )
+        )
 
 
 class Running(Training):
@@ -102,7 +102,7 @@ class SportsWalking(Training):
              + ((self.get_mean_speed())**2 // self.height)
              * self.COEFF_SPENT_CALOEIES_2
              * self.weight) * self.duration_m
-            )
+        )
 
 
 class Swimming(Training):
@@ -146,7 +146,7 @@ def read_package(workout_type: str, data: list) -> Training:
 
     raise ValueError(
         f'Тип тренировки {workout_type} не найден'
-        )
+    )
 
 
 def main(training: Training) -> None:
